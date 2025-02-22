@@ -3,6 +3,7 @@ import com.example.GreetingApplication.model.Greeting;
 import com.example.GreetingApplication.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
+
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
