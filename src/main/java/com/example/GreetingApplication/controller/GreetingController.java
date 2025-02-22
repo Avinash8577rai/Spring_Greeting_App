@@ -13,10 +13,7 @@ public class GreetingController {
         this.greetingService = greetingService;
     }
 
-    @GetMapping
-    public String getGreeting() {
-        return "{\"message\": \"" + greetingService.getGreetingMessage() + "\"}";
-    }
+
 
     @PostMapping
     public String postGreeting(@RequestBody String name) {
@@ -31,5 +28,10 @@ public class GreetingController {
     @DeleteMapping
     public String deleteGreeting() {
         return "{\"message\": \"Greeting deleted successfully.\"}";
+    }
+    @GetMapping
+    public String getGreeting(@RequestParam(required = false) String firstName,
+                              @RequestParam(required = false) String lastName) {
+        return "{\"message\": \"" + greetingService.getGreetingMessage(firstName, lastName) + "\"}";
     }
 }
