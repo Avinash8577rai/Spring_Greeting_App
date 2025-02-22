@@ -1,8 +1,8 @@
 package com.example.GreetingApplication.controller;
-
+import com.example.GreetingApplication.model.Greeting;
 import com.example.GreetingApplication.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.Optional;
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
@@ -33,5 +33,9 @@ public class GreetingController {
     public String getGreeting(@RequestParam(required = false) String firstName,
                               @RequestParam(required = false) String lastName) {
         return "{\"message\": \"" + greetingService.getGreetingMessage(firstName, lastName) + "\"}";
+    }
+    @GetMapping("/{id}")
+    public Optional<Greeting> getGreetingById(@PathVariable Long id) {
+        return greetingService.getGreetingById(id);
     }
 }
