@@ -41,6 +41,8 @@ public class GreetingController {
         return greetingService.getGreetingById(id);
     }
     @GetMapping("/all")
+    // a list is use
+
     public List<Greeting> getAllGreetings() {
         return greetingService.getAllGreetings();
     }
